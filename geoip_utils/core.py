@@ -1,12 +1,8 @@
-try:
-    from django.contrib.gis.geoip import GeoIP
-except ImportError:
-    from django.contrib.gis.utils import GeoIP
-
 from django.utils.functional import LazyObject
 
 from .utils import get_ip_of_request
 from .settings import CACHE_METHOD
+from .compat import GeoIP
 
 
 class GeoIPHandler(LazyObject):
