@@ -1,4 +1,8 @@
-from django.utils.importlib import import_module
+try:
+    from django.utils.importlib import import_module
+except ImportError:
+    from importlib import import_module
+
 from django.core.exceptions import ImproperlyConfigured
 
 from .settings import REQUEST_IP_RESOLVER
