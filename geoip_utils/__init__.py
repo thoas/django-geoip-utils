@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 
 
@@ -6,4 +8,4 @@ def where():
     return os.path.abspath(os.path.join(f, 'data'))
 
 if __name__ == '__main__':
-    print where()
+    print(where())
