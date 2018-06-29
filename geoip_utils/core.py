@@ -8,7 +8,10 @@ from .compat import GeoIP
 class GeoIPHandler(LazyObject):
 
     def _setup(self):
-        self._wrapped = GeoIP(cache=CACHE_METHOD)
+        if CACHE_METHOD:
+            self._wrapped = GeoIP(cache=CACHE_METHOD)
+        else:
+            self._wrapped = GeoIP()
 
 geoip = GeoIPHandler()
 
