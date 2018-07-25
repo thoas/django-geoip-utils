@@ -7,7 +7,7 @@ REQUEST_IP_RESOLVER = getattr(settings, "GEOIP_REQUEST_IP_RESOLVER",
 
 CACHE_METHOD = getattr(settings, "GEOIP_CACHE_METHOD", None)
 if CACHE_METHOD is None:
-    from .compat import GeoIP
+    from .compat import GeoIP, has_geoip2
 
-    if django.VERSION < (2, 0):
+    if django.VERSION < (2, 0) and not has_geoip2:
         CACHE_METHOD = GeoIP.GEOIP_STANDARD
